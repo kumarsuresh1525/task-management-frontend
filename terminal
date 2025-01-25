@@ -1,0 +1,8 @@
+mkdir task-management-app
+cd task-management-app
+npm init -y
+npm install react react-dom redux react-redux @reduxjs/toolkit react-beautiful-dnd styled-components
+npm install -D typescript @types/react @types/react-dom @types/react-beautiful-dnd @types/styled-components webpack webpack-cli webpack-dev-server typescript ts-loader babel-loader @babel/core @babel/preset-react @babel/preset-typescript @babel/preset-env html-webpack-plugin eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react dotenv-webpack 
+rm -rf node_modules package-lock.json 
+npm install 
+npm start 
