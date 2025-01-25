@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -24,7 +25,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+      defaults: false,
+      safe: true,
+      ignoreStub: true,
+    }),
   ],
   devServer: {
     static: {
@@ -32,5 +38,10 @@ module.exports = {
     },
     port: 3001,
     hot: true,
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   },
 }; 
