@@ -26,6 +26,7 @@ export const taskApi = {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authApi.getToken()}`,
       },
       body: JSON.stringify({ status }),
     });
@@ -38,6 +39,7 @@ export const taskApi = {
   deleteTask: async (id: string): Promise<void> => {
     const response = await fetch(`${API_URL}/api/tasks/${id}`, {
       method: 'DELETE',
+      headers: getHeaders()
     });
     if (!response.ok) {
       throw new Error('Failed to delete task');
