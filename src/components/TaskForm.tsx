@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
 import { addTaskAsync } from '../store/taskSlice';
 import { TaskForm as StyledForm, Input, TextArea, Button } from '../styles/components';
+import { TaskStatus } from '../types/task';
 
 const TaskForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,7 +16,7 @@ const TaskForm: React.FC = () => {
       await dispatch(addTaskAsync({
         title,
         description,
-        status: 'PENDING'
+        status: TaskStatus.PENDING
       }));
       setTitle('');
       setDescription('');
