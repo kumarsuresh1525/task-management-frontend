@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store';
 import { updateTaskStatusAsync, deleteTaskAsync, fetchTasks } from '../store/taskSlice';
 import { BoardContainer, Column, ColumnTitle, TaskCard, DeleteButton } from '../styles/components';
+import { TaskStatus } from '../types/task';
 
 const TaskBoard: React.FC = () => {
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
@@ -20,7 +21,7 @@ const TaskBoard: React.FC = () => {
     const { draggableId, destination } = result;
     await dispatch(updateTaskStatusAsync({
       id: draggableId,
-      status: destination.droppableId as 'PENDING' | 'COMPLETED' | 'DONE'
+      status: destination.droppableId as TaskStatus
     }));
   };
 
@@ -30,7 +31,7 @@ const TaskBoard: React.FC = () => {
     }
   };
 
-  const columns = ['PENDING', 'COMPLETED', 'DONE'];
+  const columns = [TaskStatus.PENDING, TaskStatus.COMPLETED, TaskStatus.DONE];
 
   if (loading) {
     return <div>Loading...</div>;
