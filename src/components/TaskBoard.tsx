@@ -50,7 +50,7 @@ console.log(tasks)
                   ref={provided.innerRef}
                 >
                   {tasks
-                    .filter((task) => task.status.toUpperCase() === column)
+                    .filter((task) => task.status === column)
                     .map((task, index) => (
                       <Draggable
                         key={task.id}
