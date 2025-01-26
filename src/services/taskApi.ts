@@ -22,7 +22,7 @@ export const taskApi = {
   },
 
   updateTaskStatus: async (id: string, status: Task['status']): Promise<Task> => {
-    const response = await fetch(`${API_URL}/api/tasks/${id}`, {
+    const response = await fetch(`${API_URL}/api/tasks/${id}/status`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
